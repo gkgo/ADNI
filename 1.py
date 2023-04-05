@@ -93,8 +93,8 @@ def main():
 
     # Load data
 
-    train_data = ImageFolder('data/train', transform=train_transform)
-    val_data = ImageFolder('data/test', transform=val_transform)
+    train_data = ImageFolder('data1234/train', transform=train_transform)
+    val_data = ImageFolder('data1234/test', transform=val_transform)
 
     train_loader = DataLoader(train_data, batch_size=32, shuffle=True, num_workers=0, drop_last=True)
     val_loader = DataLoader(val_data, batch_size=32, shuffle=False, num_workers=0, drop_last=True)
