@@ -6,7 +6,7 @@ from torchvision import datasets, transforms
 import time
 from torchvision.datasets import ImageFolder
 from tqdm import tqdm  # 添加进度条库
-from conv import ConvNet4
+# from conv import ConvNet4
 from resnet import resnet12
 
 GPU = torch.cuda.is_available()
