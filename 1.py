@@ -86,11 +86,11 @@ def main():
 
     # Load data
 
-    train_data = ImageFolder('data/train', transform=train_transform)
-    val_data = ImageFolder('data/test', transform=val_transform)
+    train_data = ImageFolder('data123/train', transform=train_transform)
+    val_data = ImageFolder('data123/test', transform=val_transform)
 
-    train_loader = DataLoader(train_data, batch_size=8, shuffle=True, num_workers=0, drop_last=True)
-    val_loader = DataLoader(val_data, batch_size=8, shuffle=False, num_workers=0, drop_last=True)
+    train_loader = DataLoader(train_data, batch_size=32, shuffle=True, num_workers=2, drop_last=True)
+    val_loader = DataLoader(val_data, batch_size=32, shuffle=False, num_workers=2, drop_last=True)
 
     # model = resnet18gai().to(device)
     # model = ConvNet4(num_classes=3).to(device)
