@@ -9,7 +9,7 @@ from tqdm import tqdm  # 添加进度条库
 # from conv import ConvNet4
 from resnet import resnet12
 import matplotlib.pyplot as plt
-import wandb
+# import wandb
 # wandb.init(project="my-project-name", name="yu")
 
 GPU = torch.cuda.is_available()
@@ -124,4 +124,19 @@ def main():
 
 if __name__ == '__main__':
     main()
+        # Plot loss and accuracy curves
+    fig, ax = plt.subplots(2, 1, figsize=(8, 8))
+    ax[0].plot(train_loss_list, label='Train Loss')
+    ax[0].plot(test_loss_list, label='Test Loss')
+    ax[0].set_xlabel('Epoch')
+    ax[0].set_ylabel('Loss')
+    ax[0].legend()
+
+    ax[1].plot(train_acc_list, label='Train Accuracy')
+    ax[1].plot(test_acc_list, label='Test Accuracy')
+    ax[1].set_xlabel('Epoch')
+    ax[1].set_ylabel('Accuracy')
+    ax[1].legend()
+
+    plt.show()
 
