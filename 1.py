@@ -93,8 +93,8 @@ def main():
 
     # Load data
 
-    train_data = ImageFolder('data1234/train', transform=train_transform)
-    val_data = ImageFolder('data1234/test', transform=val_transform)
+    train_data = ImageFolder('data12345/train', transform=train_transform)
+    val_data = ImageFolder('data12345/test', transform=val_transform)
 
     train_loader = DataLoader(train_data, batch_size=32, shuffle=True, num_workers=0, drop_last=True)
     val_loader = DataLoader(val_data, batch_size=32, shuffle=False, num_workers=0, drop_last=True)
@@ -104,7 +104,7 @@ def main():
     # model = UPANets(16, 100, 1, 32).to(device)
     model = resnet12().to(device)
 
-    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9, nesterov=True, weight_decay=0.0005)
+    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9, nesterov=True, weight_decay=0.0005)
     lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[60, 70], gamma=0.05)
     best_acc = 0.0
 
