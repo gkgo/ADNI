@@ -108,7 +108,7 @@ def main():
     lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[60, 70], gamma=0.05)
     best_acc = 0.0
 
-    for epoch in range(10):
+    for epoch in range(80):
         start_time = time.time()
         train(epoch, model, device, train_loader, optimizer)
         test_acc = test(model, device, val_loader)
