@@ -9,6 +9,7 @@ from tqdm import tqdm  # 添加进度条库
 # from conv import ConvNet4
 from resnet import resnet12
 import matplotlib.pyplot as plt
+import wandb
 wandb.init(project="my-project-name", name="yu")
 
 GPU = torch.cuda.is_available()
