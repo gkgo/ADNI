@@ -105,7 +105,7 @@ def main():
 #     model = ConvNet4(num_classes=3).to(device)
     # model = UPANets(16, 100, 1, 32).to(device)
 #     model = resnet12().to(device)
-    model = models.resnet18(pretrained=False)
+    model = models.resnet18(pretrained=False).to(device)
 
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9, nesterov=True, weight_decay=0.0005)
     lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[60, 70], gamma=0.05)
