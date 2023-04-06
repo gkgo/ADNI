@@ -10,8 +10,7 @@ from tqdm import tqdm  # 添加进度条库
 from resnet import resnet12
 import matplotlib.pyplot as plt
 import wandb
-wandb.login()
-wandb.init(project="my-project-name", name="yu")
+# wandb.init(project="my-project-name", name="yu")
 
 GPU = torch.cuda.is_available()
 
@@ -39,7 +38,7 @@ def train(epoch, model, device, train_loader, optimizer):
 
     train_loss /= len(train_loader)
     train_acc = 100. * train_correct / size
-    wandb.log({"Train Loss": train_loss, "Train Accuracy": train_acc})
+#     wandb.log({"Train Loss": train_loss, "Train Accuracy": train_acc})
     print(f"Train Epoch: {epoch}\tLoss: {train_loss:.4f}\tAccuracy: {train_acc:.2f}%")
     train_loss_list.append(train_loss)
     train_acc_list.append(train_acc)
@@ -60,7 +59,7 @@ def test(model, device, test_loader):
         test_loss /= len(test_loader)
         test_acc = 100. * test_correct / len(test_loader.dataset)
     print(f"Test set: Average loss: {test_loss:.4f}\tAccuracy: {test_acc:.2f}%")
-    wandb.log({"Test Loss": test_loss, "Test Accuracy": test_acc})
+#     wandb.log({"Test Loss": test_loss, "Test Accuracy": test_acc})
     test_loss_list.append(test_loss)
     test_acc_list.append(test_acc)
     return test_acc
