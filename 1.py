@@ -10,8 +10,8 @@ from tqdm import tqdm  # 添加进度条库
 from resnet import resnet12
 import matplotlib.pyplot as plt
 from torchvision import models
-# import wandb
-# wandb.init(project="my-project-name", name="yu")
+import wandb
+wandb.init(project="my-project-name", name="yu")
 
 GPU = torch.cuda.is_available()
 
@@ -60,7 +60,7 @@ def test(model, device, test_loader):
         test_loss /= len(test_loader)
         test_acc = 100. * test_correct / len(test_loader.dataset)
     print(f"Test set: Average loss: {test_loss:.4f}\tAccuracy: {test_acc:.2f}%")
-#     wandb.log({"Test Loss": test_loss, "Test Accuracy": test_acc})
+    wandb.log({"Test Loss": test_loss, "Test Accuracy": test_acc})
     test_loss_list.append(test_loss)
     test_acc_list.append(test_acc)
     return test_acc
